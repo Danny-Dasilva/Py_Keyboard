@@ -16,6 +16,10 @@ class Write():
       if c == 'a':
         write_report(NULL_CHAR*2+chr(4)+NULL_CHAR*5)
         write_report(NULL_CHAR*8)
+      if c == 'A':
+        write_report(chr(32)+NULL_CHAR+chr(4)+NULL_CHAR*5)
+        write_report(NULL_CHAR*8)
+
 
 
 class type:
@@ -24,5 +28,5 @@ class type:
   
 
 
-Write.write('Halla Tast')
+Write.write('Halla TAst')
 
