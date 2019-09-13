@@ -3,7 +3,7 @@ from time import sleep
 class Write():
   def __init__(self, string):
     self.string = string
-  def test(string):
+  def write(string):
     #!/usr/bin/env python3
     NULL_CHAR = chr(0)
 
@@ -15,7 +15,6 @@ class Write():
       print(c)
       if c == 'a':
         write_report(NULL_CHAR*2+chr(4)+NULL_CHAR*5)
-  
         write_report(NULL_CHAR*8)
 
 
@@ -25,5 +24,5 @@ class type:
   
 
 
-Write.type('Halla Tast')
+Write.write('Halla Tast')
 
