@@ -1,6 +1,6 @@
 
 from time import sleep
-class Press():
+class Write():
   def __init__(self, string):
     self.string = string
   def test(string):
@@ -15,9 +15,9 @@ class Press():
       print(c)
       if c == 'a':
         write_report(NULL_CHAR*2+chr(4)+NULL_CHAR*5)
-        sleep(.05)
+  
         write_report(NULL_CHAR*8)
-    
+
 
 class type:
   def __init__(self, string):
@@ -25,5 +25,5 @@ class type:
   
 
 
-Press.test('Halla Tast')
+Write.type('Halla Tast')
 
