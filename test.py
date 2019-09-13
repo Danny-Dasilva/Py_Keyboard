@@ -34,7 +34,7 @@ class type:
   
 
 
-Write.write('aAbBeEfFgGhH')
+Write.write('01&@#$%123123/""/;:')
 
 
 
