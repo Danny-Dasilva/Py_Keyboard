@@ -14,7 +14,6 @@ class Press():
     for c in string:
       print(c)
       if c == 'a':
-        print("a")
         write_report(NULL_CHAR*2+chr(4)+NULL_CHAR*5)
         sleep(.05)
         write_report(NULL_CHAR*8)
@@ -26,5 +25,5 @@ class type:
   
 
 
-Press.test('Hallo Tst')
+Press.test('Halla Tast')
 
