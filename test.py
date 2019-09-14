@@ -98,8 +98,8 @@ class Write():
     NULL_CHAR = chr(0)
     
     print(string)
-    write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
-    write_report(NULL_CHAR*8)
+    self.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
+    self.write_report(NULL_CHAR*8)
 
 
 
