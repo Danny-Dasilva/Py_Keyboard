@@ -1,7 +1,7 @@
 
 from time import sleep
 
-class HID():
+class device():
   def __init__(self, string):
     self.string = string
   def write_report(report):
