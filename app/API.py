@@ -97,10 +97,10 @@ class device():
     #!/usr/bin/env python3
     NULL_CHAR = chr(0)
     for word in string.split():
-      print (word)
       if word == "ENTER":
-        print (word)
         device.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
+      if word == "Control":
+        device.write_report(NULL_CHAR*2+chr(3)+NULL_CHAR*5)
       
 
       device.write_report(NULL_CHAR*8)
