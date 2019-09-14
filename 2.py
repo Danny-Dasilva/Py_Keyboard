@@ -19,12 +19,12 @@
 NULL_CHAR = chr(0)
 
 
-l = NULL_CHAR*2+chr(3)+NULL_CHAR*5
+l = chr(32)+NULL_CHAR+chr(30)+NULL_CHAR*5
 
 
 print(l.encode())
 
-example = b'\x00\x00\x03\x00\x00\x00\x00\x00'
+example = b'\x00\x1e\x00\x00\x00\x00\x00'
 
 print(example.replace(b'\0', b''))
 

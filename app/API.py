@@ -101,7 +101,8 @@ class device():
         device.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
       if word == "Control":
         print("pressed control c")
-        device.write_report(NULL_CHAR*2+chr(3)+NULL_CHAR*5)
+        device.write_report(chr(32)+NULL_CHAR+chr(30)+NULL_CHAR*5)
+        device.write_report(NULL_CHAR*2+chr(23)+NULL_CHAR*5)
       
 
       device.write_report(NULL_CHAR*8)
