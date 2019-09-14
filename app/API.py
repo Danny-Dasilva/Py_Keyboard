@@ -37,7 +37,7 @@ class device():
           write_report(NULL_CHAR*2+chr(a)+NULL_CHAR*5)
      
       if c == '!':
-        write_report(chr(32)+NULL_CHAR+chr(30)+NULL_CHAR*5)
+        write_repodevice.press('ENTER')rt(chr(32)+NULL_CHAR+chr(30)+NULL_CHAR*5)
      
       if c == '@':
         write_report(chr(32)+NULL_CHAR+chr(31)+NULL_CHAR*5)
@@ -100,10 +100,10 @@ class device():
       print (word)
       if word == "ENTER":
         print (word)
-        Write.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
+        device.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
       
 
-      Write.write_report(NULL_CHAR*8)
+      device.write_report(NULL_CHAR*8)
 
 
 
