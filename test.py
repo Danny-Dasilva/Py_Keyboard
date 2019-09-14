@@ -63,13 +63,13 @@ class Write():
         write_report(chr(32)+NULL_CHAR+chr(39)+NULL_CHAR*5)
       if c == '=':
         write_report(NULL_CHAR*2+chr(46)+NULL_CHAR*5)
-      if c == '[':
-        write_report(chr(32)+NULL_CHAR+chr(47)+NULL_CHAR*5)
       if c == '{':
+        write_report(chr(32)+NULL_CHAR+chr(47)+NULL_CHAR*5)
+      if c == '[':
         write_report(NULL_CHAR*2+chr(47)+NULL_CHAR*5)
-      if c == ']':
-        write_report(chr(32)+NULL_CHAR+chr(48)+NULL_CHAR*5)
       if c == '}':
+        write_report(chr(32)+NULL_CHAR+chr(48)+NULL_CHAR*5)
+      if c == ']':
         write_report(NULL_CHAR*2+chr(48)+NULL_CHAR*5)
       # if c == "\":
       #   write_report(chr(32)+NULL_CHAR+chr(47)+NULL_CHAR*5)
@@ -107,7 +107,7 @@ class type:
   
 
 
-Write.write('!@#$%^&*()[]{}=123qwe')
+Write.write('!@#$%^&*()[]{ |"''":;}= 123qwe')
 
 
 
