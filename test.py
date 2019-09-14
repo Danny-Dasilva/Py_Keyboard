@@ -4,6 +4,9 @@ sleep(5)
 class Write():
   def __init__(self, string):
     self.string = string
+  def write_report(report):
+      with open('/dev/hidg0', 'rb+') as fd:
+          fd.write(report.encode())
   def write(string):
     #!/usr/bin/env python3
     NULL_CHAR = chr(0)
@@ -93,9 +96,7 @@ class Write():
   def press(string):
       #!/usr/bin/env python3
     NULL_CHAR = chr(0)
-    def write_report(report):
-        with open('/dev/hidg0', 'rb+') as fd:
-            fd.write(report.encode())
+    
     print(string)
     write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
     write_report(NULL_CHAR*8)
