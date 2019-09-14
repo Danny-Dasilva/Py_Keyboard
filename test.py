@@ -94,11 +94,15 @@ class Write():
       write_report(NULL_CHAR*8)
     
   def press(string):
-      #!/usr/bin/env python3
+    #!/usr/bin/env python3
     NULL_CHAR = chr(0)
-    
-    print(string)
-    Write.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
+    for word in string.split():
+      print (word)
+      if word == "ENTER":
+
+        Write.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
+
+
     Write.write_report(NULL_CHAR*8)
 
 
