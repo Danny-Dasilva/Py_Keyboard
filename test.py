@@ -101,9 +101,12 @@ class Write():
       if word == "ENTER":
         print (word)
         Write.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
-      if word == "CTRL":
-        print (word)
-        Write.write_report(NULL_CHAR*2+chr(3)+NULL_CHAR*5)
+      
+      if word == 'CTRL':
+        write_report(chr(32)+NULL_CHAR+chr(35)+NULL_CHAR*5)
+      
+      if word == 'C':
+        write_report(chr(32)+NULL_CHAR+chr(6)+NULL_CHAR*5) 
      
       # if ord(c) > 96:
       #     s = ord(c) - 93
@@ -132,6 +135,14 @@ class type:
 Write.write('!@#$%^&*()[]"''":; = 123qwe')
 
 
-Write.press('CTRL')
+Write.press('CTRL C')
+
+Write.press('CTRL C')
+
+Write.press('CTRL C')
+
+Write.press('CTRL C')
+
+Write.press('CTRL C')
 
 Write.write('!@#$%^&*()[]"''":; = 123qwe')
