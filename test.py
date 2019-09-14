@@ -101,6 +101,9 @@ class Write():
       if word == "ENTER":
 
         Write.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
+      # if ord(c) > 96:
+      #     s = ord(c) - 93
+      #     write_report(NULL_CHAR*2+chr(s)+NULL_CHAR*5)
 
 
     Write.write_report(NULL_CHAR*8)
@@ -124,9 +127,6 @@ class type:
 
 Write.write('!@#$%^&*()[]"''":; = 123qwe')
 
-Write.press('ENTER')
 
-Write.press('ENTER')
-Write.press('ENTER')
-Write.press('ENTER')
-Write.press('ENTER')
+Write.press('ENTER ENTER ENTER')
+Write.write('!@#$%^&*()[]"''":; = 123qwe')
