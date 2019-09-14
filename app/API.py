@@ -37,7 +37,7 @@ class device():
           write_report(NULL_CHAR*2+chr(a)+NULL_CHAR*5)
      
       if c == '!':
-        write_repodevice.press('ENTER')rt(chr(32)+NULL_CHAR+chr(30)+NULL_CHAR*5)
+        write_report(chr(32)+NULL_CHAR+chr(30)+NULL_CHAR*5)
      
       if c == '@':
         write_report(chr(32)+NULL_CHAR+chr(31)+NULL_CHAR*5)
