@@ -1,16 +1,17 @@
-s = 'c'
-c = ord(s)
-print(c)
+
 import struct
-string = 'Habclla TAst'
+string = '0123456789ABCDabcdzzZZ'
 for c in string:
+    #lowercase
     if ord(c) > 96:
         s = ord(c) - 93
-        write_report(NULL_CHAR*2+chr(s)+NULL_CHAR*5)
-        write_report(NULL_CHAR*8)
-    if ord(c) < 96:
+    #uppercasse
+    if 64 < ord(c) < 91:
         a = ord(c) - 61
-        write_report(chr(32)+NULL_CHAR+chr(a)+NULL_CHAR*5)
-        write_report(NULL_CHAR*8)
-
-
+        
+    #numbers
+    if 48 < ord(c) < 58:
+        a = ord(c) - 19
+    # 0 
+    if ord(c) == 48:
+        a = ord(c) - 9
