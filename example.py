@@ -1,4 +1,6 @@
-from app.API.Write import press, write
+import app
 
-press('ENTER')
-write('!@#$%^&*()[]"":; = 123qwe')
+# from app import API
+
+# HID.press('ENTER')
+# HID.write('!@#$%^&*()[]"":; = 123qwe')
