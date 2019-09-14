@@ -99,14 +99,14 @@ class Write():
     for word in string.split():
       print (word)
       if word == "ENTER":
-
+        print (word)
         Write.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
       # if ord(c) > 96:
       #     s = ord(c) - 93
       #     write_report(NULL_CHAR*2+chr(s)+NULL_CHAR*5)
 
 
-    Write.write_report(NULL_CHAR*8)
+      Write.write_report(NULL_CHAR*8)
 
 
 
@@ -129,4 +129,6 @@ Write.write('!@#$%^&*()[]"''":; = 123qwe')
 
 
 Write.press('ENTER ENTER ENTER')
+sleep(1)
+print('test')
 Write.write('!@#$%^&*()[]"''":; = 123qwe')
