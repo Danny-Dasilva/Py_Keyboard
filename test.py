@@ -13,7 +13,9 @@ class Write():
             fd.write(report.encode())
 
     for c in string:
-   
+      #space
+      if c == " ":
+        write_report(NULL_CHAR*2+chr(44)+NULL_CHAR*5)
       #lowercase
       if ord(c) > 96:
           s = ord(c) - 93
