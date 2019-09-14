@@ -100,6 +100,7 @@ class device():
       if word == "ENTER":
         device.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
       if word == "Control":
+        print("pressed control c")
         device.write_report(NULL_CHAR*2+chr(3)+NULL_CHAR*5)
       
 
