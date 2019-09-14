@@ -103,10 +103,10 @@ class Write():
         Write.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
       
       if word == 'CTRL':
-        Write.write_report(chr(32)+NULL_CHAR+chr(35)+NULL_CHAR*5)
+        Write.write_report(NULL_CHAR*2+chr(3)+NULL_CHAR*5)
       
-      if word == 'C':
-        Write.write_report(chr(32)+NULL_CHAR+chr(6)+NULL_CHAR*5) 
+      # if word == 'C':
+      #   Write.write_report(chr(32)+NULL_CHAR+chr(6)+NULL_CHAR*5) 
      
       # if ord(c) > 96:
       #     s = ord(c) - 93
@@ -134,14 +134,9 @@ class type:
 
 
 
-Write.press('CTRL C')
-Write.press('ENTER')
-Write.press('CTRL C')
-Write.press('ENTER')
-Write.press('CTRL C')
-Write.press('ENTER')
-Write.press('ENTER')
+Write.press('CTRL')
 
-Write.press('CTRL C')
+Write.press('CTRL')
 
-Write.press('ENTER')
+Write.press('CTRL')
+
