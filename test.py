@@ -135,12 +135,13 @@ class type:
 
 
 Write.press('CTRL C')
-
+Write.press('ENTER')
 Write.press('CTRL C')
-
+Write.press('ENTER')
 Write.press('CTRL C')
-
+Write.press('ENTER')
 Write.press('ENTER')
 
 Write.press('CTRL C')
 
+Write.press('ENTER')
