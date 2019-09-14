@@ -105,9 +105,9 @@ class Write():
         print (word)
         Write.write_report(NULL_CHAR*2+chr(3)+NULL_CHAR*5)
      
-      if ord(c) > 96:
-          s = ord(c) - 93
-          write_report(NULL_CHAR*2+chr(s)+NULL_CHAR*5)
+      # if ord(c) > 96:
+      #     s = ord(c) - 93
+      #     write_report(NULL_CHAR*2+chr(s)+NULL_CHAR*5)
 
 
       Write.write_report(NULL_CHAR*8)
