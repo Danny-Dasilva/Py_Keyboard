@@ -2,7 +2,7 @@
 
 setup from  https://randomnerdtutorials.com/raspberry-pi-zero-usb-keyboard-hid/
 
-```
+```python
 from app.API import device
 
 
