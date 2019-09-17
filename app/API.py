@@ -107,7 +107,7 @@ class device():
           fd.write(b'\x05\0\x17\0\0\0\0\0')
       if word == "CTRL-ALT-DELETE":
         with open('/dev/hidg0', 'rb+') as fd:
-          fd.write(b'\x05\0\0x05\0\0\0\0\0')
+          fd.write(b'\x05\0\x4c\0\0\0\0\0')
         
 
       device.write_report(NULL_CHAR*8)
