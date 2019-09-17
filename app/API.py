@@ -101,10 +101,9 @@ class device():
         device.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
       if word == "Control":
         print("pressed control c")
-        device.write_report("5\x0\x4c\x0\x0\x0\x0\x0")
-        device.write_report(NULL_CHAR*8)
-        device.write_report(chr(32)+NULL_CHAR+chr(6)+NULL_CHAR*5)
-      
+        with open('/dev/hidg0', 'rb+') as fd:
+            fd.write(b'\x05\0\x17\0\0\0\0\0')
+        
 
       device.write_report(NULL_CHAR*8)
 
