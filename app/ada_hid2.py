@@ -270,8 +270,10 @@ class KeyboardLayoutUS:
 * Author(s): Scott Shawcroft, Dan Halbert
 """
 def send_report(report):
-    with open('/dev/hidg0', 'rb+') as fd:
-        fd.write(report)
+    print("")
+    pass
+    # with open('/dev/hidg0', 'rb+') as fd:
+    #     fd.write(report)
 import time
 # from micropython import const
 #import usb_hid
@@ -318,7 +320,7 @@ class Keyboard:
             self.release_all()
 
 
-    def press(self, *keycodes):
+    def press(self, keycodes):
         
         """Send a report indicating that the given keys have been pressed.
 
@@ -341,9 +343,25 @@ class Keyboard:
             # Press a, b, c keys all at once.
             kbd.press(Keycode.A, Keycode.B, Keycode.C)
         """
-        for keycode in keycodes:
-            self._add_keycode_to_report(keycode)
+        xys = {}
+        for keycode in keycodes.split():
+            xys[keycode] = keycode
+        for a, b in Keycode.__dict__.items():
+            if a not in xys: continue
+            self._add_keycode_to_report(a)
         send_report(self.report)
+        # for keycode in keycodes.split():
+        #     print(keycode)
+        #     self._add_keycode_to_report(keycode)
+        # send_report(self.report)
+
+
+
+
+        # for keycode in keycodes:
+        #     print(keycode)
+        #     self._add_keycode_to_report(keycode)
+        # send_report(self.report)
 
     def release(self, *keycodes):
         """Send a USB HID report indicating that the given keys have been released.
