@@ -1,7 +1,7 @@
 NULL_CHAR = chr(0)
 
 
-l = chr(32)+NULL_CHAR+chr(5)+NULL_CHAR*5
+l = chr(32)+NULL_CHAR+chr(6)+NULL_CHAR*5
 
 
 print(l.encode())
