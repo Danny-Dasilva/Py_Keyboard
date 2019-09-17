@@ -8,7 +8,14 @@ kbd = Keyboard()
 layout = KeyboardLayoutUS(kbd)
 
 # Type 'abc' followed by Enter (a newline).
-kbd.press(Keycode.SHIFT, Keycode.ONE)
+kbd.press(Keycode.CONTROL, Keycode.ALT, Keycode.T,)
+kbd.release_all()
+
+kbd.press(Keycode.CONTROL, Keycode.ALT, Keycode.T,)
+kbd.release_all()
+
+kbd.press(Keycode.CONTROL, Keycode.ALT, Keycode.T,)
+kbd.release_all()
 
 # Get the keycodes needed to type a '$'.
 # The method will return (Keycode.SHIFT, Keycode.FOUR).
