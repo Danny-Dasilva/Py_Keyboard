@@ -348,7 +348,7 @@ class Keyboard:
             if a not in xys: continue
             self._add_keycode_to_report(int(keycode))
         send_report(self.report)
-       
+        Keyboard.release_all()
 
     def release(self, *keycodes):
         """Send a USB HID report indicating that the given keys have been released.
