@@ -3,14 +3,25 @@
 setup from  https://randomnerdtutorials.com/raspberry-pi-zero-usb-keyboard-hid/
 
 ```python
-from app.API import device
+
+from app.HID import Keyboard
+from app.HID import KeyboardLayoutUS
+from time import sleep
+
+kbd = Keyboard()
+layout = KeyboardLayoutUS(kbd)
 
 
-device.write('cd  Desktop')
-device.press('ENTER')
+kbd.press("CONTROL ALT T")
+
+layout.write('ls\n')
+
+
+
 ```
 
 
 
 ## to do
 add install.sh
+keycodes = layout.keycodes('$')
