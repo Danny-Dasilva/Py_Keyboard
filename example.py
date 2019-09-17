@@ -1,9 +1,16 @@
-from app.API import device
+
+from app.HID import Keyboard
+from app.HID import KeyboardLayoutUS
+from time import sleep
+
+kbd = Keyboard()
+layout = KeyboardLayoutUS(kbd)
 
 
+kbd.press("CONTROL ALT T")
 
-from app.API import device
+layout.write('ls\n')
 
-
-device.write('cd  Desktop')
-device.press('ENTER')
+#todo 
+keycodes = layout.keycodes('$')
+print("done")
