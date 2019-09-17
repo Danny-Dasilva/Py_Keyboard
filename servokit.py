@@ -16,7 +16,19 @@ layout = KeyboardLayoutUS(kbd)
 # kbd.press(Keycode.CONTROL, Keycode.ALT, Keycode.T,)
 # kbd.release_all()
 kbd.press("CONTROL ALT T")
-#kbd.release_all()
+kbd.press("CONTROL ALT T")
+kbd.press("CONTROL ALT T")
+kbd.press("CONTROL ALT T")
+kbd.press("CONTROL ALT T")
+
+layout.write('ls\n')
+
+layout.write('ls\n')
+layout.write('ls\n')
+layout.write('ls\n')
+layout.write('ls\n')
+layout.write('ls\n')
+layout.write('ls\n')
 
 # Get the keycodes needed to type a '$'.
 # The method will return (Keycode.SHIFT, Keycode.FOUR).
