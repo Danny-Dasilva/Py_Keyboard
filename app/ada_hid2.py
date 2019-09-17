@@ -347,10 +347,8 @@ class Keyboard:
         for a , keycode in Keycode.__dict__.items():
             if a not in xys: continue
             self._add_keycode_to_report(int(keycode))
-            print("done1")
         send_report(self.report)
-        print("done1")
-     
+       
 
     def release(self, *keycodes):
         """Send a USB HID report indicating that the given keys have been released.
