@@ -103,9 +103,11 @@ class device():
       if word == "ENTER":
         device.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
       if word == "CTRL-ALT-T":
-        writer(b'\x05\0\x17\0\0\0\0\0')
+        with open('/dev/hidg0', 'rb+') as fd:
+          fd.write(b'\x05\0\x17\0\0\0\0\0')
       if word == "CTRL-ALT-C":
-        writer(b'\x05\0\x06\0\0\0\0\0')
+        with open('/dev/hidg0', 'rb+') as fd:
+          fd.write(b'\x05\0\x06\0\0\0\0\0')
         
 
       device.write_report(NULL_CHAR*8)
