@@ -270,10 +270,8 @@ class KeyboardLayoutUS:
 * Author(s): Scott Shawcroft, Dan Halbert
 """
 def send_report(report):
-    print("")
-    pass
-    # with open('/dev/hidg0', 'rb+') as fd:
-    #     fd.write(report)
+    with open('/dev/hidg0', 'rb+') as fd:
+        fd.write(report)
 import time
 # from micropython import const
 #import usb_hid
