@@ -191,7 +191,6 @@ class KeyboardLayoutUS:
         """
         for char in string:
             keycode = self._char_to_keycode(char)
-            print(keycode)
             # If this is a shifted char, clear the SHIFT flag and press the SHIFT key.
             if keycode & self.SHIFT_FLAG:
                 keycode &= ~self.SHIFT_FLAG

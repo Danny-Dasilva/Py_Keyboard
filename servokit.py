@@ -7,7 +7,7 @@ kbd = Keyboard()
 layout = KeyboardLayoutUS(kbd)
 
 # Type 'abc' followed by Enter (a newline).
-layout.write('abc\n')
+layout.write('hello is this working\n')
 
 # Get the keycodes needed to type a '$'.
 # The method will return (Keycode.SHIFT, Keycode.FOUR).
