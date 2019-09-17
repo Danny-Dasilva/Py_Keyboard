@@ -94,16 +94,15 @@ class device():
       write_report(NULL_CHAR*8)
     
   def press(string):
-    #!/usr/bin/env python3
+    #!there is a better wayto do this but im lazy
     NULL_CHAR = chr(0)
     for word in string.split():
       if word == "ENTER":
         device.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
-      if word == "Control":
+      if word == "CTRL-ALT-T":
         print("pressed control c")
         with open('/dev/hidg0', 'rb+') as fd:
-            fd.write(b'\x05\0\0\0\0\0\0\0')
-            fd.write(b'\0\0\x17\0\0\0\0\0')
+            fd.write(b'\x05\0\x17\0\0\0\0\0')
         
 
       device.write_report(NULL_CHAR*8)
