@@ -2,13 +2,8 @@ from app.API import device
 
 
 
-device.press('Control')
-device.press('Control')
-device.press('Control')
+from app.API import device
 
-device.press('Control')
-device.press('Control')
-device.press('Control')
-device.press('Control')
-device.press('Control')
-device.press('Control')
+
+device.write('cd  Desktop')
+device.press('ENTER')
