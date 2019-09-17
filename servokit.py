@@ -8,9 +8,7 @@ kbd = Keyboard()
 layout = KeyboardLayoutUS(kbd)
 
 # Type 'abc' followed by Enter (a newline).
-layout.write('hello is this working\n')
-kbd.press(Keycode.CONTROL, Keycode.ALT, Keycode.T )
-kbd.release_all()
+kbd.press(Keycode.SHIFT, Keycode.ONE)
 
 # Get the keycodes needed to type a '$'.
 # The method will return (Keycode.SHIFT, Keycode.FOUR).
