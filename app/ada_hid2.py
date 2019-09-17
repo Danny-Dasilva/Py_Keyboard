@@ -342,11 +342,11 @@ class Keyboard:
             kbd.press(Keycode.A, Keycode.B, Keycode.C)
         """
         xys = {}
-        for keycode in keycodes.split():
-            xys[keycode] = keycode
-        for a, b in Keycode.__dict__.items():
-            if a not in xys: continue
-            self._add_keycode_to_report(a)
+        for string in keycodes.split():
+            xys[string] = string
+        for keycode, b in Keycode.__dict__.items():
+            if keycode not in xys: continue
+            self._add_keycode_to_report(keycode)
         send_report(self.report)
         # for keycode in keycodes.split():
         #     print(keycode)
