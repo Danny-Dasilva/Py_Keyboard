@@ -1,31 +1,12 @@
-
-# import struct
-# string = '0123456789ABCDabcdzzZZ'
-# for c in string:
-#     #lowercase
-#     if ord(c) > 96:
-#         s = ord(c) - 93
-#     #uppercasse
-#     if 64 < ord(c) < 91:
-#         a = ord(c) - 61
-        
-#     #numbers
-#     if 48 < ord(c) < 58:
-#         a = ord(c) - 19
-#     # 0 
-#     if ord(c) == 48:
-#         a = ord(c) - 9
-
 NULL_CHAR = chr(0)
+t = chr(2)
+print(t)
 
-
-l = NULL_CHAR*2+chr(128)+NULL_CHAR*5
+l = chr(32)+NULL_CHAR+chr(5)+NULL_CHAR*5
 
 
 print(l.encode())
 
-example = b'\x00\x00\xc2\x80\x00\x00\x00\x00\x00'
+example = b'\x00\x05\x00\x00\x00\x00\x00'
 
 print(example.replace(b'\0', b''))
-
-#print(example.decode('utf-16'))
