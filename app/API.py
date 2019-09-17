@@ -98,7 +98,7 @@ class device():
     NULL_CHAR = chr(0)
     def writer(input):
        with open('/dev/hidg0', 'rb+') as fd:
-         fd.write(string)
+         fd.write(bytes(string))
     for word in string.split():
       if word == "ENTER":
         device.write_report(NULL_CHAR*2+chr(40)+NULL_CHAR*5)
