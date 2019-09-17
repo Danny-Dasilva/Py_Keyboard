@@ -194,8 +194,8 @@ class KeyboardLayoutUS:
             # If this is a shifted char, clear the SHIFT flag and press the SHIFT key.
             if keycode & self.SHIFT_FLAG:
                 keycode &= ~self.SHIFT_FLAG
-                self.keyboard.press(Keycode.SHIFT)
-            self.keyboard.press(keycode)
+                self.keyboard.writer(Keycode.SHIFT)
+            self.keyboard.writer(keycode)
             self.keyboard.release_all()
 
 
@@ -317,6 +317,10 @@ class Keyboard:
             time.sleep(1)
             self.release_all()
 
+    def writer(self, *keycodes):
+        for keycode in keycodes:
+            self._add_keycode_to_report(keycode)
+        send_report(self.report)
 
     def press(self, keycodes):
         

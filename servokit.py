@@ -19,7 +19,7 @@ kbd.press("CONTROL ALT T")
 kbd.press("CONTROL ALT T")
 kbd.press("CONTROL ALT T")
 kbd.press("CONTROL ALT T")
-kbd.press("CONTROL ALT T")
+
 
 layout.write('ls\n')
 
