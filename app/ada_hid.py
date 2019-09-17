@@ -272,8 +272,8 @@ class KeyboardLayoutUS:
 """
 def send_report(report):
     print(report)
-    # with open('/dev/hidg0', 'rb+') as fd:
-    #     fd.write(report.encode())
+    with open('/dev/hidg0', 'rb+') as fd:
+        fd.write(report)
 import time
 # from micropython import const
 #import usb_hid
@@ -344,7 +344,7 @@ class Keyboard:
         """
         for keycode in keycodes:
             self._add_keycode_to_report(keycode)
-        self.hid_keyboard.send_report(self.report)
+        send_report(self.report)
 
     def release(self, *keycodes):
         """Send a USB HID report indicating that the given keys have been released.
@@ -385,12 +385,12 @@ class Keyboard:
         else:
             # Don't press twice.
             # (I'd like to use 'not in self.report_keys' here, but that's not implemented.)
-            for i in range(const(self._MAX_KEYPRESSES)):
+            for i in range(self._MAX_KEYPRESSES):
                 if self.report_keys[i] == keycode:
                     # Already pressed.
                     return
             # Put keycode in first empty slot.
-            for i in range(const(self._MAX_KEYPRESSES)):
+            for i in range(self._MAX_KEYPRESSES):
                 if self.report_keys[i] == 0:
                     self.report_keys[i] = keycode
                     return
@@ -405,6 +405,6 @@ class Keyboard:
             self.report_modifier[0] &= ~modifier
         else:
             # Check all the slots, just in case there's a duplicate. (There should not be.)
-            for i in range(const(self._MAX_KEYPRESSES)):
+            for i in range(self._MAX_KEYPRESSES):
                 if self.report_keys[i] == keycode:
                     self.report_keys[i] = 0
