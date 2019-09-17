@@ -344,8 +344,8 @@ class Keyboard:
         xys = {}
         for string in keycodes.split():
             xys[string] = string
-        for keycode, b in Keycode.__dict__.items():
-            if keycode not in xys: continue
+        for a , keycode in Keycode.__dict__.items():
+            if a not in xys: continue
             self._add_keycode_to_report(keycode)
         send_report(self.report)
         # for keycode in keycodes.split():
