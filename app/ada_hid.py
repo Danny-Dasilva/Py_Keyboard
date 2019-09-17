@@ -270,7 +270,6 @@ class KeyboardLayoutUS:
 * Author(s): Scott Shawcroft, Dan Halbert
 """
 def send_report(report):
-    print(report)
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report)
 import time

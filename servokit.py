@@ -12,3 +12,4 @@ layout.write('hello is this working\n')
 # Get the keycodes needed to type a '$'.
 # The method will return (Keycode.SHIFT, Keycode.FOUR).
 keycodes = layout.keycodes('$')
+print("done")
