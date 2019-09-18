@@ -2,6 +2,19 @@
 
 setup from  https://randomnerdtutorials.com/raspberry-pi-zero-usb-keyboard-hid/
 
+
+
+## git repo
+
+`pip3 install git+https://github.com/Danny-Dasilva/Py-Keyboard.git`
+## on a brand new pi zero w
+
+run
+
+`source install.sh`
+
+
+
 ```python
 
 
