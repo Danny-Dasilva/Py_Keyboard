@@ -9,7 +9,7 @@
 * Author(s): Dan Halbert
 """
 
-from app.keycode import Keycode
+from Py_Keyboard.keycode import Keycode
 
 
 class KeyboardLayoutUS:
