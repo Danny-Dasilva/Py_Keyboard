@@ -1,5 +1,5 @@
 
-from app.HID import Keyboard, KeyboardLayoutUS
+from Py-Keyboard.HID import Keyboard, KeyboardLayoutUS
 from time import sleep
 
 kbd = Keyboard()
