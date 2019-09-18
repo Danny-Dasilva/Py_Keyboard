@@ -11,7 +11,7 @@ setuptools.setup(
     description="Python wrapper for hid device on the pi zero w",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Danny-Dasilva/Py-Keyboard",
+    url="https://github.com/Danny-Dasilva/Py_Keyboard",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
