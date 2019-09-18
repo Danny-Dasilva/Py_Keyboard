@@ -18,8 +18,7 @@ run
 ```python
 
 
-from app.HID import Keyboard, KeyboardLayoutUS
-from time import sleep
+from Py_Keyboard.HID import Keyboard, KeyboardLayoutUS
 
 kbd = Keyboard()
 layout = KeyboardLayoutUS(kbd)
