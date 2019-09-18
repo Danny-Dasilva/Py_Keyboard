@@ -4,8 +4,8 @@ setup from  https://randomnerdtutorials.com/raspberry-pi-zero-usb-keyboard-hid/
 
 ```python
 
-from app.HID import Keyboard
-from app.HID import KeyboardLayoutUS
+
+from app.HID import Keyboard, KeyboardLayoutUS
 from time import sleep
 
 kbd = Keyboard()
@@ -15,6 +15,8 @@ layout = KeyboardLayoutUS(kbd)
 kbd.press("CONTROL ALT T")
 
 layout.write('ls\n')
+
+
 
 
 

@@ -1,6 +1,5 @@
 
-from app.HID import Keyboard
-from app.HID import KeyboardLayoutUS
+from app.HID import Keyboard, KeyboardLayoutUS
 from time import sleep
 
 kbd = Keyboard()
