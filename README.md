@@ -37,5 +37,5 @@ layout.write('ls\n')
 
 
 ## to do
-add install.sh
-keycodes = layout.keycodes('$')
+
+`keycodes = layout.keycodes('$')`
