@@ -8,6 +8,7 @@
 
 * Author(s): Dan Halbert
 """
+import time
 
 
 
@@ -621,11 +622,7 @@ class Keyboard:
 def send_report(report):
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report)
-import time
-# from micropython import const
-#import usb_hid
 
-from .keycode import Keycode
 
 
     
