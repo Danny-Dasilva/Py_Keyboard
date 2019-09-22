@@ -534,6 +534,7 @@ class Keyboard:
         Keyboard.release_all(self)
 
     def writer(self, *keycodes):
+        print('keycode in writer')
         for keycode in keycodes:
             print(keycode)
             self._add_keycode_to_report(keycode)
@@ -625,7 +626,7 @@ class Keyboard:
 """
 def send_report(report):
     with open('/dev/hidg0', 'rb+') as fd:
-        print(report)
+        
         fd.write(report)
 
 
