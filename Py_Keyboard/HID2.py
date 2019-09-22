@@ -482,7 +482,7 @@ class Keyboard:
                 self.writer(Keycode.SHIFT)
             print(keycode)
             self.writer(keycode)
-            print("22222")
+          
             self.release_all()
 
 
@@ -536,12 +536,9 @@ class Keyboard:
         Keyboard.release_all(self)
 
     def writer(self, *keycodes):
-        print('keycode in writer')
 
         for keycode in keycodes:
-            print(keycode)
             self._add_keycode_to_report(keycode)
-            print(keycode)
        
         send_report(self.report)
 
@@ -565,7 +562,7 @@ class Keyboard:
 
     def _add_keycode_to_report(self, keycode):
         """Add a single keycode to the USB HID report."""
-        modifier = Keycode.modifier_bit(keycode)
+        modifier = Keycode.modifier_bit(keycode) print("report")
         if modifier:
             # Set bit for this modifier.
             self.report_modifier[0] |= modifier
@@ -629,8 +626,7 @@ class Keyboard:
 """
 def send_report(report):
     with open('/dev/hidg0', 'rb+') as fd:
-        print("report")
-        # fd.write(report)
+        fd.write(report)
 
 
 
