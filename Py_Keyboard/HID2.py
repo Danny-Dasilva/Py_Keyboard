@@ -456,6 +456,7 @@ class Keyboard:
         try:
             self.release_all()
         except OSError:
+            print("eror")
             time.sleep(1)
             self.release_all()
         
