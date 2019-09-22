@@ -1,15 +1,9 @@
 
-from Py_Keyboard.HID import Keyboard, KeyboardLayoutUS
-from time import sleep
+from Py_Keyboard.HID import Keyboard
 
 kbd = Keyboard()
-layout = KeyboardLayoutUS(kbd)
-
 
 kbd.press("CONTROL ALT T")
 
-layout.write('ls\n')
+kbd.write('ls\n')
 
-#todo 
-keycodes = layout.keycodes('$')
-print("done")

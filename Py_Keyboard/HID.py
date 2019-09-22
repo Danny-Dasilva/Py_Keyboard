@@ -8,29 +8,284 @@
 
 * Author(s): Dan Halbert
 """
+import time
 
-from Py_Keyboard.keycode import Keycode
 
 
-class KeyboardLayoutUS:
-    """Map ASCII characters to appropriate keypresses on a standard US PC keyboard.
 
-    Non-ASCII characters and most control characters will raise an exception.
-    """
+class Keycode:
+    
+    #pylint: disable-msg=invalid-name
+    A = 0x04
+    """``a`` and ``A``"""
+    B = 0x05
+    """``b`` and ``B``"""
+    C = 0x06
+    """``c`` and ``C``"""
+    D = 0x07
+    """``d`` and ``D``"""
+    E = 0x08
+    """``e`` and ``E``"""
+    F = 0x09
+    """``f`` and ``F``"""
+    G = 0x0A
+    """``g`` and ``G``"""
+    H = 0x0B
+    """``h`` and ``H``"""
+    I = 0x0C
+    """``i`` and ``I``"""
+    J = 0x0D
+    """``j`` and ``J``"""
+    K = 0x0E
+    """``k`` and ``K``"""
+    L = 0x0F
+    """``l`` and ``L``"""
+    M = 0x10
+    """``m`` and ``M``"""
+    N = 0x11
+    """``n`` and ``N``"""
+    O = 0x12
+    """``o`` and ``O``"""
+    P = 0x13
+    """``p`` and ``P``"""
+    Q = 0x14
+    """``q`` and ``Q``"""
+    R = 0x15
+    """``r`` and ``R``"""
+    S = 0x16
+    """``s`` and ``S``"""
+    T = 0x17
+    """``t`` and ``T``"""
+    U = 0x18
+    """``u`` and ``U``"""
+    V = 0x19
+    """``v`` and ``V``"""
+    W = 0x1A
+    """``w`` and ``W``"""
+    X = 0x1B
+    """``x`` and ``X``"""
+    Y = 0x1C
+    """``y`` and ``Y``"""
+    Z = 0x1D
+    """``z`` and ``Z``"""
 
-    # The ASCII_TO_KEYCODE bytes object is used as a table to maps ASCII 0-127
-    # to the corresponding # keycode on a US 104-key keyboard.
-    # The user should not normally need to use this table,
-    # but it is not marked as private.
-    #
-    # Because the table only goes to 127, we use the top bit of each byte (ox80) to indicate
-    # that the shift key should be pressed. So any values 0x{8,9,a,b}* are shifted characters.
-    #
-    # The Python compiler will concatenate all these bytes literals into a single bytes object.
-    # Micropython/CircuitPython will store the resulting bytes constant in flash memory
-    # if it's in a .mpy file, so it doesn't use up valuable RAM.
-    #
-    # \x00 entries have no keyboard key and so won't be sent.
+    ONE = 0x1E
+    """``1`` and ``!``"""
+    TWO = 0x1F
+    """``2`` and ``@``"""
+    THREE = 0x20
+    """``3`` and ``#``"""
+    FOUR = 0x21
+    """``4`` and ``$``"""
+    FIVE = 0x22
+    """``5`` and ``%``"""
+    SIX = 0x23
+    """``6`` and ``^``"""
+    SEVEN = 0x24
+    """``7`` and ``&``"""
+    EIGHT = 0x25
+    """``8`` and ``*``"""
+    NINE = 0x26
+    """``9`` and ``(``"""
+    ZERO = 0x27
+    """``0`` and ``)``"""
+    ENTER = 0x28
+    """Enter (Return)"""
+    RETURN = ENTER
+    """Alias for ``ENTER``"""
+    ESCAPE = 0x29
+    """Escape"""
+    BACKSPACE = 0x2A
+    """Delete backward (Backspace)"""
+    TAB = 0x2B
+    """Tab and Backtab"""
+    SPACEBAR = 0x2C
+    """Spacebar"""
+    SPACE = SPACEBAR
+    """Alias for SPACEBAR"""
+    MINUS = 0x2D
+    """``-` and ``_``"""
+    EQUALS = 0x2E
+    """``=` and ``+``"""
+    LEFT_BRACKET = 0x2F
+    """``[`` and ``{``"""
+    RIGHT_BRACKET = 0x30
+    """``]`` and ``}``"""
+    BACKSLASH = 0x31
+    r"""``\`` and ``|``"""
+    POUND = 0x32
+    """``#`` and ``~`` (Non-US keyboard)"""
+    SEMICOLON = 0x33
+    """``;`` and ``:``"""
+    QUOTE = 0x34
+    """``'`` and ``"``"""
+    GRAVE_ACCENT = 0x35
+    r""":literal:`\`` and ``~``"""
+    COMMA = 0x36
+    """``,`` and ``<``"""
+    PERIOD = 0x37
+    """``.`` and ``>``"""
+    FORWARD_SLASH = 0x38
+    """``/`` and ``?``"""
+
+    CAPS_LOCK = 0x39
+    """Caps Lock"""
+
+    F1 = 0x3A
+    """Function key F1"""
+    F2 = 0x3B
+    """Function key F2"""
+    F3 = 0x3C
+    """Function key F3"""
+    F4 = 0x3D
+    """Function key F4"""
+    F5 = 0x3E
+    """Function key F5"""
+    F6 = 0x3F
+    """Function key F6"""
+    F7 = 0x40
+    """Function key F7"""
+    F8 = 0x41
+    """Function key F8"""
+    F9 = 0x42
+    """Function key F9"""
+    F10 = 0x43
+    """Function key F10"""
+    F11 = 0x44
+    """Function key F11"""
+    F12 = 0x45
+    """Function key F12"""
+
+    PRINT_SCREEN = 0x46
+    """Print Screen (SysRq)"""
+    SCROLL_LOCK = 0x47
+    """Scroll Lock"""
+    PAUSE = 0x48
+    """Pause (Break)"""
+
+    INSERT = 0x49
+    """Insert"""
+    HOME = 0x4A
+    """Home (often moves to beginning of line)"""
+    PAGE_UP = 0x4B
+    """Go back one page"""
+    DELETE = 0x4C
+    """Delete forward"""
+    END = 0x4D
+    """End (often moves to end of line)"""
+    PAGE_DOWN = 0x4E
+    """Go forward one page"""
+
+    RIGHT_ARROW = 0x4F
+    """Move the cursor right"""
+    LEFT_ARROW = 0x50
+    """Move the cursor left"""
+    DOWN_ARROW = 0x51
+    """Move the cursor down"""
+    UP_ARROW = 0x52
+    """Move the cursor up"""
+
+    KEYPAD_NUMLOCK = 0x53
+    """Num Lock (Clear on Mac)"""
+    KEYPAD_FORWARD_SLASH = 0x54
+    """Keypad ``/``"""
+    KEYPAD_ASTERISK = 0x55
+    """Keypad ``*``"""
+    KEYPAD_MINUS = 0x56
+    """Keyapd ``-``"""
+    KEYPAD_PLUS = 0x57
+    """Keypad ``+``"""
+    KEYPAD_ENTER = 0x58
+    """Keypad Enter"""
+    KEYPAD_ONE = 0x59
+    """Keypad ``1`` and End"""
+    KEYPAD_TWO = 0x5A
+    """Keypad ``2`` and Down Arrow"""
+    KEYPAD_THREE = 0x5B
+    """Keypad ``3`` and PgDn"""
+    KEYPAD_FOUR = 0x5C
+    """Keypad ``4`` and Left Arrow"""
+    KEYPAD_FIVE = 0x5D
+    """Keypad ``5``"""
+    KEYPAD_SIX = 0x5E
+    """Keypad ``6`` and Right Arrow"""
+    KEYPAD_SEVEN = 0x5F
+    """Keypad ``7`` and Home"""
+    KEYPAD_EIGHT = 0x60
+    """Keypad ``8`` and Up Arrow"""
+    KEYPAD_NINE = 0x61
+    """Keypad ``9`` and PgUp"""
+    KEYPAD_ZERO = 0x62
+    """Keypad ``0`` and Ins"""
+    KEYPAD_PERIOD = 0x63
+    """Keypad ``.`` and Del"""
+    KEYPAD_BACKSLASH = 0x64
+    """Keypad ``\\`` and ``|`` (Non-US)"""
+
+    APPLICATION = 0x65
+    """Application: also known as the Menu key (Windows)"""
+    POWER = 0x66
+    """Power (Mac)"""
+    KEYPAD_EQUALS = 0x67
+    """Keypad ``=`` (Mac)"""
+    F13 = 0x68
+    """Function key F13 (Mac)"""
+    F14 = 0x69
+    """Function key F14 (Mac)"""
+    F15 = 0x6A
+    """Function key F15 (Mac)"""
+    F16 = 0x6B
+    """Function key F16 (Mac)"""
+    F17 = 0x6C
+    """Function key F17 (Mac)"""
+    F18 = 0x6D
+    """Function key F18 (Mac)"""
+    F19 = 0x6E
+    """Function key F19 (Mac)"""
+
+    LEFT_CONTROL = 0xE0
+    """Control modifier left of the spacebar"""
+    CONTROL = LEFT_CONTROL
+    """Alias for LEFT_CONTROL"""
+    LEFT_SHIFT = 0xE1
+    """Shift modifier left of the spacebar"""
+    SHIFT = LEFT_SHIFT
+    """Alias for LEFT_SHIFT"""
+    LEFT_ALT = 0xE2
+    """Alt modifier left of the spacebar"""
+    ALT = LEFT_ALT
+    """Alias for LEFT_ALT; Alt is also known as Option (Mac)"""
+    OPTION = ALT
+    """Labeled as Option on some Mac keyboards"""
+    LEFT_GUI = 0xE3
+    """GUI modifier left of the spacebar"""
+    GUI = LEFT_GUI
+    """Alias for LEFT_GUI; GUI is also known as the Windows key, Command (Mac), or Meta"""
+    WINDOWS = GUI
+    """Labeled with a Windows logo on Windows keyboards"""
+    COMMAND = GUI
+    """Labeled as Command on Mac keyboards, with a clover glyph"""
+    RIGHT_CONTROL = 0xE4
+    """Control modifier right of the spacebar"""
+    RIGHT_SHIFT = 0xE5
+    """Shift modifier right of the spacebar"""
+    RIGHT_ALT = 0xE6
+    """Alt modifier right of the spacebar"""
+    RIGHT_GUI = 0xE7
+    """GUI modifier right of the spacebar"""
+
+
+    @classmethod
+    def modifier_bit(cls, keycode):
+        """Return the modifer bit to be set in an HID keycode report if this is a
+        modifier key; otherwise return 0."""
+        return 1 << (keycode - 0xE0) if cls.LEFT_CONTROL <= keycode <= cls.RIGHT_GUI else 0
+
+
+
+class Keyboard:
+
+    _MAX_KEYPRESSES = 6
     SHIFT_FLAG = 0x80
     ASCII_TO_KEYCODE = (
         b'\x00'    # NUL
@@ -163,7 +418,7 @@ class KeyboardLayoutUS:
         b'\x4c'    # DEL DELETE (called Forward Delete in usb.org document)
     )
 
-    def __init__(self, keyboard):
+    def __init__(self):
         """Specify the layout for the given keyboard.
 
         :param keyboard: a Keyboard object. Write characters to this keyboard when requested.
@@ -173,8 +428,38 @@ class KeyboardLayoutUS:
             kbd = Keyboard()
             layout = KeyboardLayoutUS(kbd)
         """
+        """Create a Keyboard object that will send USB keyboard HID reports."""
+        self.hid_keyboard = None
+        # for device in usb_hid.devices:
+        #     if device.usage_page == 0x1 and device.usage == 0x06:
+        #         self.hid_keyboard = device
+        #         break
+        # if not self.hid_keyboard:
+        #     raise IOError("Could not find an HID keyboard device.")
 
-        self.keyboard = keyboard
+        # Reuse this bytearray to send keyboard reports.
+        self.report = bytearray(8)
+
+        # report[0] modifiers
+        # report[1] unused
+        # report[2:8] regular key presses
+
+        # View onto byte 0 in report.
+        self.report_modifier = memoryview(self.report)[0:1]
+
+        # List of regular keys currently pressed.
+        # View onto bytes 2-7 in report.
+        self.report_keys = memoryview(self.report)[2:]
+        self.keyboard = Keyboard
+        # Do a no-op to test if HID device is ready.
+        # If not, wait a bit and try once more.
+        try:
+            self.release_all()
+        except OSError:
+            print("eror")
+            time.sleep(1)
+            self.release_all()
+        
 
 
     def write(self, string):
@@ -194,9 +479,10 @@ class KeyboardLayoutUS:
             # If this is a shifted char, clear the SHIFT flag and press the SHIFT key.
             if keycode & self.SHIFT_FLAG:
                 keycode &= ~self.SHIFT_FLAG
-                self.keyboard.writer(Keycode.SHIFT)
-            self.keyboard.writer(keycode)
-            self.keyboard.release_all()
+                self.writer(Keycode.SHIFT)
+            self.writer(keycode)
+          
+            self.release_all()
 
 
     def keycodes(self, char):
@@ -238,114 +524,7 @@ class KeyboardLayoutUS:
         if keycode == 0:
             raise ValueError("No keycode available for character.")
         return keycode
-
-
-# The MIT License (MIT)
-#
-# Copyright (c) 2017 Dan Halbert
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-# THE SOFTWARE.
-#
-
-"""
-`adafruit_hid.keyboard.Keyboard`
-====================================================
-
-* Author(s): Scott Shawcroft, Dan Halbert
-"""
-def send_report(report):
-    with open('/dev/hidg0', 'rb+') as fd:
-        fd.write(report)
-import time
-# from micropython import const
-#import usb_hid
-
-from .keycode import Keycode
-
-
-class Keyboard:
-    """Send HID keyboard reports."""
-
-    # No more than _MAX_KEYPRESSES regular keys may be pressed at once.
-    _MAX_KEYPRESSES = 6
-
-    def __init__(self):
-        """Create a Keyboard object that will send USB keyboard HID reports."""
-        self.hid_keyboard = None
-        # for device in usb_hid.devices:
-        #     if device.usage_page == 0x1 and device.usage == 0x06:
-        #         self.hid_keyboard = device
-        #         break
-        # if not self.hid_keyboard:
-        #     raise IOError("Could not find an HID keyboard device.")
-
-        # Reuse this bytearray to send keyboard reports.
-        self.report = bytearray(8)
-
-        # report[0] modifiers
-        # report[1] unused
-        # report[2:8] regular key presses
-
-        # View onto byte 0 in report.
-        self.report_modifier = memoryview(self.report)[0:1]
-
-        # List of regular keys currently pressed.
-        # View onto bytes 2-7 in report.
-        self.report_keys = memoryview(self.report)[2:]
-
-        # Do a no-op to test if HID device is ready.
-        # If not, wait a bit and try once more.
-        try:
-            self.release_all()
-        except OSError:
-            time.sleep(1)
-            self.release_all()
-
-    def writer(self, *keycodes):
-        for keycode in keycodes:
-            self._add_keycode_to_report(keycode)
-            print(keycode)
-        send_report(self.report)
-
     def press(self, keycodes):
-        
-        """Send a report indicating that the given keys have been pressed.
-
-        :param keycodes: Press these keycodes all at once.
-        :raises ValueError: if more than six regular keys are pressed.
-
-        Keycodes may be modifiers or regular keys.
-        No more than six regular keys may be pressed simultaneously.
-
-        Examples::
-
-            from adafruit_hid.keycode import Keycode
-
-            # Press ctrl-x.
-            kbd.press(Keycode.LEFT_CONTROL, Keycode.X)
-
-            # Or, more conveniently, use the CONTROL alias for LEFT_CONTROL:
-            kbd.press(Keycode.CONTROL, Keycode.X)
-
-            # Press a, b, c keys all at once.
-            kbd.press(Keycode.A, Keycode.B, Keycode.C)
-        """
         xys = {}
         for string in keycodes.split():
             xys[string] = string
@@ -355,28 +534,23 @@ class Keyboard:
         send_report(self.report)
         Keyboard.release_all(self)
 
+    def writer(self, *keycodes):
+
+        for keycode in keycodes:
+            self._add_keycode_to_report(keycode)
+       
+        send_report(self.report)
+
     def release(self, *keycodes):
-        """Send a USB HID report indicating that the given keys have been released.
-
-        :param keycodes: Release these keycodes all at once.
-
-        If a keycode to be released was not pressed, it is ignored.
-
-        Example::
-
-            # release SHIFT key
-            kbd.release(Keycode.SHIFT)
-        """
+        
         for keycode in keycodes:
             self._remove_keycode_from_report(keycode)
         self.hid_keyboard.send_report(self.report)
-
     def release_all(self):
         """Release all pressed keys."""
         for i in range(8):
             self.report[i] = 0
         send_report(self.report)
-
     def send(self, *keycodes):
         """Press the given keycodes and then release all pressed keys.
 
@@ -417,3 +591,42 @@ class Keyboard:
             for i in range(self._MAX_KEYPRESSES):
                 if self.report_keys[i] == keycode:
                     self.report_keys[i] = 0
+    
+
+
+# The MIT License (MIT)
+#
+# Copyright (c) 2017 Dan Halbert
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+#
+
+"""
+`adafruit_hid.keyboard.Keyboard`
+====================================================
+
+* Author(s): Scott Shawcroft, Dan Halbert
+"""
+def send_report(report):
+    with open('/dev/hidg0', 'rb+') as fd:
+        fd.write(report)
+
+
+
+    
