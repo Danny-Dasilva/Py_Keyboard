@@ -320,6 +320,7 @@ class Keyboard:
     def writer(self, *keycodes):
         for keycode in keycodes:
             self._add_keycode_to_report(keycode)
+            print(keycode)
         send_report(self.report)
 
     def press(self, keycodes):
