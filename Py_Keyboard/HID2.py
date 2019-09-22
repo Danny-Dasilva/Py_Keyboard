@@ -480,6 +480,7 @@ class Keyboard:
             if keycode & self.SHIFT_FLAG:
                 keycode &= ~self.SHIFT_FLAG
                 self.keyboard.writer(Keycode.SHIFT)
+            print(keycode)
             self.keyboard.writer(keycode)
             self.keyboard.release_all()
 
