@@ -621,6 +621,7 @@ class Keyboard:
 """
 def send_report(report):
     with open('/dev/hidg0', 'rb+') as fd:
+        print(report)
         fd.write(report)
 
 
