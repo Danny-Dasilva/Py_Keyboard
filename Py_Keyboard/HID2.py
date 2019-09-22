@@ -562,7 +562,7 @@ class Keyboard:
 
     def _add_keycode_to_report(self, keycode):
         """Add a single keycode to the USB HID report."""
-        modifier = Keycode.modifier_bit(keycode) print("report")
+        modifier = Keycode.modifier_bit(keycode)
         if modifier:
             # Set bit for this modifier.
             self.report_modifier[0] |= modifier
