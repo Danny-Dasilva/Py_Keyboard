@@ -40,3 +40,6 @@ kbd.write('ls\n')
 ## to do
 
 `keycodes = layout.keycodes('$')`
+
+Test pip package import
+
