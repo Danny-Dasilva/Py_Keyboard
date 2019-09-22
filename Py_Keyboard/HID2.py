@@ -535,8 +535,10 @@ class Keyboard:
 
     def writer(self, *keycodes):
         for keycode in keycodes:
+            print(keycode)
             self._add_keycode_to_report(keycode)
-        print(self.report)
+            print(keycode)
+       
         send_report(self.report)
 
     def release(self, *keycodes):
