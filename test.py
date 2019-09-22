@@ -5,8 +5,7 @@ from time import sleep
 kbd = Keyboard()
 
 
-
 kbd.press("CONTROL ALT T")
 
-kbd.write('ls\n')
+kbd.write('ls ## !@@#*(%*&)')
 
