@@ -479,10 +479,11 @@ class Keyboard:
             # If this is a shifted char, clear the SHIFT flag and press the SHIFT key.
             if keycode & self.SHIFT_FLAG:
                 keycode &= ~self.SHIFT_FLAG
-                self.keyboard.writer(Keycode.SHIFT)
+                self.writer(Keycode.SHIFT)
             print(keycode)
-            self.keyboard.writer(keycode)
-            self.keyboard.release_all()
+            self.writer(keycode)
+            print("22222")
+            self.release_all()
 
 
     def keycodes(self, char):
@@ -536,6 +537,7 @@ class Keyboard:
 
     def writer(self, *keycodes):
         print('keycode in writer')
+
         for keycode in keycodes:
             print(keycode)
             self._add_keycode_to_report(keycode)
