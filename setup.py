@@ -7,7 +7,7 @@ setuptools.setup(
     name="Py_Keyboard",
     version="0.0.2",
     author="Danny Dasilva",
-    author_email="yahchayildasilva@gmail.com",
+    author_email="dannydasilva.solutions@gmail.com",
     description="Python wrapper for hid device on the pi zero w",
     long_description=long_description,
     long_description_content_type="text/markdown",
