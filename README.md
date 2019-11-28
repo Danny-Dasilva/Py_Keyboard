@@ -1,4 +1,6 @@
-## Python Wrapper for emulkating a HID USB device for the raspi zero w
+## Python HID USB emulator
+
+Python Wrapper for emulating a HID USB device for the raspi zero w
 
 setup from  https://randomnerdtutorials.com/raspberry-pi-zero-usb-keyboard-hid/
 
