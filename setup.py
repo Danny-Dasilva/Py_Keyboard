@@ -8,14 +8,12 @@ setuptools.setup(
     version="0.0.2",
     author="Danny Dasilva",
     author_email="dannydasilva.solutions@gmail.com",
-    description="Python wrapper for hid device on the pi zero w",
+    description="Python wrapper for hid device",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Danny-Dasilva/Py_Keyboard",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: GNU GPLv3",
-        "Operating System :: Linux",
     ],
 )
