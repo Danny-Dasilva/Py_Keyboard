@@ -1,13 +1,4 @@
-# The MIT License (MIT)
 
-#
-
-"""
-`adafruit_hid.keyboard_layout_us.KeyboardLayoutUS`
-=======================================================
-
-* Author(s): Dan Halbert
-"""
 import time
 
 
@@ -474,16 +465,20 @@ class Keyboard:
             # Write abc followed by Enter to the keyboard
             layout.write('abc\\n')
         """
+        written_codes = []
         for char in string:
             keycode = self._char_to_keycode(char)
             # If this is a shifted char, clear the SHIFT flag and press the SHIFT key.
             if keycode & self.SHIFT_FLAG:
                 keycode &= ~self.SHIFT_FLAG
-                self.writer(Keycode.SHIFT)
-            self.writer(keycode)
+                result = self.writer(Keycode.SHIFT)
+                written_codes.append(result)
+            result = self.writer(keycode)
+            written_codes.append(result)
+            
           
             self.release_all()
-
+        return (written_codes)
 
     def keycodes(self, char):
         """Return a tuple of keycodes needed to type the given character.
@@ -533,6 +528,7 @@ class Keyboard:
             self._add_keycode_to_report(int(keycode))
         send_report(self.report)
         Keyboard.release_all(self)
+        return self.report
 
     def writer(self, *keycodes):
 
@@ -540,6 +536,8 @@ class Keyboard:
             self._add_keycode_to_report(keycode)
        
         send_report(self.report)
+
+        return self.report
 
     def release(self, *keycodes):
         
@@ -594,38 +592,12 @@ class Keyboard:
     
 
 
-# The MIT License (MIT)
-#
-# Copyright (c) 2017 Dan Halbert
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-# THE SOFTWARE.
-#
 
-"""
-`adafruit_hid.keyboard.Keyboard`
-====================================================
-
-* Author(s): Scott Shawcroft, Dan Halbert
-"""
 def send_report(report):
+    """ write bytes to HID device """
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report)
+
 
 
 
